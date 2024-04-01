@@ -1,1 +1,107 @@
-<html></html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- 引入jQuery 3.x版本 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shoufengqin caidan</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        body {
+            background-color: #2d2c41;
+        }
+
+        div,
+        li {
+            width: 200px;
+            height: 50px;
+            background-color: white;
+            text-align: center;
+            line-height: 50px;
+            color: #b63b4d;
+        }
+
+        li {
+            color: white;
+            background-color: #444359;
+            border-bottom: 1px solid #4b4a5e;
+        }
+
+        p {
+            display: inline-block;
+        }
+
+        .arrow {
+            transform: rotate(90deg);
+        }
+
+        ul{
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p>111111111</p>
+        <p class="arrow">></p>
+    </div>
+    <ul>
+        <li>1-1</li>
+        <li>1-2</li>
+        <li>1-3</li>
+        <li>1-4</li>
+    </ul>
+    <div>
+        <p>222222222</p>
+        <p class="arrow">></p>
+    </div>
+    <ul>
+        <li>2-1</li>
+        <li>2-2</li>
+        <li>2-3</li>
+        <li>2-4</li>
+    </ul>
+    <div>
+        <p>333333333</p>
+        <p class="arrow">></p>
+    </div>
+    <ul>
+        <li>3-1</li>
+        <li>3-2</li>
+        <li>3-3</li>
+        <li>3-4</li>
+    </ul>
+    <div>
+        <p>44444444444</p>
+        <p class="arrow">></p>
+    </div>
+    <ul>
+        <li>4-1</li>
+        <li>4-2</li>
+        <li>4-3</li>
+        <li>4-4</li>
+    </ul>
+
+    <script>
+        $("div").click(function () {
+            $(this).next('ul').stop().slideToggle().siblings('ul').slideUp();
+            $(this).children('.arrow').css({
+                transform:'rotate(270deg)'
+            })
+        })
+    </script>
+</body>
+
+</html>
