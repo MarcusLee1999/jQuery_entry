@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 <head>
-    <!-- 引入jQuery 3.x版本 -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>shoufengqin caidan</title>
+    <title>Document</title>
     <style>
         * {
             margin: 0;
@@ -44,64 +44,83 @@
 
         .arrow {
             transform: rotate(90deg);
+            transition: transform 1s ease;
+            /* 动画时长为0.5秒 */
         }
 
-        ul{
+        .activeArrow {
+            transform: rotate(270deg)
+        }
+
+        ul {
             display: none;
         }
     </style>
 </head>
 
 <body>
-    <div>
-        <p>111111111</p>
-        <p class="arrow">></p>
-    </div>
-    <ul>
-        <li>1-1</li>
-        <li>1-2</li>
-        <li>1-3</li>
-        <li>1-4</li>
-    </ul>
-    <div>
-        <p>222222222</p>
-        <p class="arrow">></p>
-    </div>
-    <ul>
-        <li>2-1</li>
-        <li>2-2</li>
-        <li>2-3</li>
-        <li>2-4</li>
-    </ul>
-    <div>
-        <p>333333333</p>
-        <p class="arrow">></p>
-    </div>
-    <ul>
-        <li>3-1</li>
-        <li>3-2</li>
-        <li>3-3</li>
-        <li>3-4</li>
-    </ul>
-    <div>
-        <p>44444444444</p>
-        <p class="arrow">></p>
-    </div>
-    <ul>
-        <li>4-1</li>
-        <li>4-2</li>
-        <li>4-3</li>
-        <li>4-4</li>
-    </ul>
 
-    <script>
-        $("div").click(function () {
-            $(this).next('ul').stop().slideToggle().siblings('ul').slideUp();
-            $(this).children('.arrow').css({
-                transform:'rotate(270deg)'
-            })
-        })
-    </script>
+
+
+    <body>
+        <div>
+            <p>111111111</p>
+            <p class="arrow">></p>
+        </div>
+        <ul>
+            <li>1-1</li>
+            <li>1-2</li>
+            <li>1-3</li>
+            <li>1-4</li>
+        </ul>
+        <div>
+            <p>222222222</p>
+            <p class="arrow">></p>
+        </div>
+        <ul>
+            <li>2-1</li>
+            <li>2-2</li>
+            <li>2-3</li>
+            <li>2-4</li>
+        </ul>
+        <div>
+            <p>333333333</p>
+            <p class="arrow">></p>
+        </div>
+        <ul>
+            <li>3-1</li>
+            <li>3-2</li>
+            <li>3-3</li>
+            <li>3-4</li>
+        </ul>
+        <div>
+            <p>44444444444</p>
+            <p class="arrow">></p>
+        </div>
+        <ul>
+            <li>4-1</li>
+            <li>4-2</li>
+            <li>4-3</li>
+            <li>4-4</li>
+        </ul>
+
+        <script>
+
+            $("div").click(function () {
+                // 展开或折叠当前div的ul
+                $(this).next('ul').stop().slideToggle().siblings('ul').slideUp();
+                // 切换当前点击箭头的状态
+                $(this).children('.arrow').toggleClass('activeArrow');
+                // 对其他具有.activeArrow类的箭头移除该类
+                $(this).siblings('div').children('.arrow').removeClass('activeArrow')
+      
+            });
+
+
+        </script>
+    </body>
+
+
 </body>
 
 </html>
